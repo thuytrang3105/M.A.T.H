@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cổng Không Gian</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: radial-gradient(circle at center, #0a0a0a, #1a1a1a);
+      color: #00eaff;
+      overflow: hidden;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px;
+      font-size: 2em;
+      color: #00eaff;
+      text-shadow: 0 0 10px #00eaff;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      padding: 40px;
+    }
+
+    .zone {
+      width: 300px;
+      height: 200px;
+      background: rgba(0, 30, 60, 0.8);
+      border: 2px solid #00eaff;
+      border-radius: 15px;
+      box-shadow: 0 0 20px #00eaff;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .zone:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 40px #00eaff;
+    }
+
+    .zone h2 {
+      margin-top: 20px;
+      font-size: 1.5em;
+      color: #ffcc00;
+      text-shadow: 0 0 10px #ffcc00;
+    }
+
+    .zone p {
+      color: #ffffff;
+      font-size: 1em;
+      padding: 0 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px;
+      color: #888;
+      font-size: 0.9em;
+    }
+
+    /* Hiệu ứng nền động */
+    .stars {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: url('https://i.ibb.co/7QpKsCX/stars.png') repeat;
+      animation: moveStars 60s linear infinite;
+      z-index: -1;
+    }
+
+    @keyframes moveStars {
+      from { background-position: 0 0; }
+      to { background-position: -10000px 5000px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="stars"></div>
+  <header>⚙️ CỔNG KHÔNG GIAN ⚙️</header>
+
+  <div class="container">
+    <div class="zone" onclick="alert('Vào Xưởng Đúc Giáp!')">
+      <h2>🛠️ Xưởng Đúc Giáp</h2>
+      <p>Gom các mảnh kim loại để tạo khung robot (Phép Cộng).</p>
+    </div>
+
+    <div class="zone" onclick="alert('Vào Phòng Giảm Trọng Lượng!')">
+      <h2>⚙️ Phòng Giảm Trọng Lượng</h2>
+      <p>Loại bỏ linh kiện thừa để robot nhẹ hơn (Phép Trừ).</p>
+    </div>
+
+    <div class="zone" onclick="alert('Vào Đường Đua Năng Lượng!')">
+      <h2>⚡ Đường Đua Năng Lượng</h2>
+      <p>Lái xe thu thập lõi năng lượng để nhân sức mạnh (Phép Nhân).</p>
+    </div>
+
+    <div class="zone" onclick="alert('Vào Hồ Thủy Lực!')">
+      <h2>💧 Hồ Thủy Lực</h2>
+      <p>Câu linh kiện quý hiếm dưới nước để lắp vũ khí (Phép Chia).</p>
+    </div>
+  </div>
+
+  <footer>© 2026 Gara Robot - Cổng Không Gian</footer>
+</body>
+</html>
