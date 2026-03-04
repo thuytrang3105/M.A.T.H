@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Đường Đua Nhân - M.A.T.H</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/multiplication_race.css">
+</head>
+<body>
+    <div id="game-container">
+        <div class="game_header">
+            <button onclick="window.location.href='/'" class="back-button">Trở về Gara</button>
+            <div id="score">Điểm:0</div>
+        </div>
+        <div id="hud">
+            <div class="math-question" id="question">7 x 8</div>
+            <div class="score">NĂNG LƯỢNG PIN: <span id="score-val">0</span></div>
+        </div>
+        <canvas id="gameCanvas"></canvas>
+        <div id="overlay">
+            <h1 id="status-text" style="color: #ff00ff;">CẠN NĂNG LƯỢNG!</h1>
+            <button onclick="location.reload()">ĐUA LẠI</button>
+        </div>
+    </div>
+    
+    <div id="level-select">
+        <h1 style="color: #00f3ff; text-shadow: 0 0 15px #00f3ff;">CHỌN CHẾ ĐỘ ĐUA</h1>
+        
+        <div style="margin-bottom: 20px; font-size: 1.2rem;">
+            <label style="cursor: pointer;">
+                <input type="checkbox" id="immortal-mode" style="transform: scale(1.5); margin-right: 10px;">
+                CHẾ ĐỘ "BẤT TỬ" (Va chạm không thua)
+            </label>
+        </div>
+
+        <button class="level-btn btn-easy" onclick="startGame(1)">TẬP SỰ (Bảng 2, 5)</button>
+        <button class="level-btn btn-hard" onclick="startGame(2)">CHIẾN BINH (Bảng 7, 8, 9)</button>
+    </div>
+    <script src="../static/js/race.js"></script>
+</body>
+</html>

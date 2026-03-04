@@ -3,6 +3,9 @@ from fastapi import FastAPI,Request
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 import os
+import random
+
+from models import math_logic
 
 app = FastAPI(title="Gara Robot MATH")
 
@@ -33,9 +36,6 @@ if templates_path.exists():
 
 @app.get("/")
 async def home(request: Request):
-    """
-    Render giao diện Cổng Không Gian (Menu chính)
-    """
     return templates.TemplateResponse("home.html", {"request": request})
 
 # API mẫu để sau này gọi từ JS (Model logic sẽ viết ở đây)
@@ -43,7 +43,41 @@ async def home(request: Request):
 async def get_status():
     return {"status": "Online", "system": "Gara Robot Ready"}
 
+@app.get("/get-question")
+async def get_question(type: str, level: int):
+    if type == "multiplication":
+        if level == 1: # Dễ: bảng 2, 5
+            num1 = random.choice([2, 5])
+            num2 = random.randint(1, 10)
+        else: # Khó: bảng 7, 8, 9
+            num1 = random.choice([7, 8, 9])
+            num2 = random.randint(1, 10)
+        
+        answer = num1 * num2
+        # Tạo 2 đáp án sai ngẫu nhiên gần với đáp án đúng
+        options = [answer, answer + random.choice([1, 2, 10]), abs(answer - random.choice([1, 2, 5]))]
+        random.shuffle(options)
+        
+        return {
+            "question": f"{num1} x {num2}",
+            "answer": answer,
+            "options": options
+        }
+    return {"error": "Type not found"}
+
+@app.get("/api/multiplication_race")
+async def multiplication_race(request: Request):
+    return  templates.TemplateResponse("multiplication_race.html",{"request": request})
+
+@app.get("/lake")
+async def lake(request: Request):
+    return templates.TemplateResponse("lake.html", {"request": request})
+
+@app.get("/api/get-fish-question")
+async def get_fish_question():
+    question_data = math_logic.MathModel.generate_division_x(level="easy")
+    return question_data
+
 if __name__ == "__main__":
     import uvicorn
-    # Chạy server tại port 8000
     uvicorn.run(app, host="127.0.0.1", port=8000) 

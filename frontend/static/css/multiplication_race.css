@@ -1,0 +1,73 @@
+body { margin: 0; 
+    background: #000; 
+    color: #fff; 
+    font-family: 'Orbitron', 
+    sans-serif; 
+    overflow: hidden; 
+}
+#game-container { 
+    position: relative; 
+    width: 100vw; 
+    height: 100vh; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+}
+#hud { 
+    position: absolute; 
+    top: 20px; 
+    width: 100%; 
+    text-align: center; 
+    pointer-events: none; 
+}
+.game_header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.math-question { 
+            font-size: 5rem; 
+            color: #fff200; 
+            text-shadow: 0 0 20px #fff200; 
+            margin-bottom: 10px; }
+.score { 
+    font-size: 1.5rem; 
+    color: #00f3ff; 
+}
+canvas { 
+    background: #050510; 
+    border-left: 4px solid #333; 
+    border-right: 4px solid #333; 
+}
+#overlay { 
+    position: absolute; 
+    top: 0; left: 0; width: 100%; height: 100%; 
+    background: rgba(0,0,0,0.8); 
+    display: none; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    z-index: 100; 
+}
+button { 
+    padding: 15px 30px; 
+    font-size: 1.0rem; 
+    font-family: 'Orbitron'; 
+    background: #39ff14; 
+    border: none; 
+    cursor: pointer; 
+}
+#level-select {
+    font-size: 10px;
+    position: absolute;
+    top: 30px;
+    width: 20%; 
+    background: rgba(0,0,0,0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 100; /* Đảm bảo nổi lên trên Canvas */
+}

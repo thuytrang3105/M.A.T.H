@@ -22,3 +22,18 @@ class MathModel:
             "correct_answer": x_value,
             "options": random.sample([x_value, x_value + 2, x_value - 5, x_value + 10], 4)
         }
+    
+    @staticmethod
+    def get_remainder_question():
+        total_fish = random.randint(10,20)
+        buckets = random.randint(2,4)
+        q = total_fish // buckets
+        r = total_fish % buckets
+        return {
+            "type": "remainder",
+            "total": total_fish,
+            "buckets": buckets,
+            "answer_q": q,
+            "answer_r": r,
+            "question": f"Có {total_fish} con cá đươc chia vào {buckets} xô,Mỗi xô có bao nhiêu con và dư mấy ?"
+        }

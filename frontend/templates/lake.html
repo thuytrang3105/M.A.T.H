@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/lake.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="lake-container">
+        <div class="game_header">
+            <button onclick="window.location.href='/'" class="back-button">Trở về Gara</button>
+            <div id="score">Điểm:0</div>
+        </div>
+
+        <div class="robot-area">
+            <div class="robot-fisherman">🤖🎣</div>
+            <div class="fishing-line"></div>
+            <div class="fish-x" id="current-fish">x</div>
+        </div>
+
+        <div class="question-board">
+            <h2 id="math-question">Đang tải câu hỏi...</h2>
+        </div>
+
+        <div class="water-area">
+            <div class="treasure-chests" id="options">
+                </div>
+        </div>
+    </div>
+    <script src="/static/js/lake.js"></script>
+</body>
+</html>
